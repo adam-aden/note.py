@@ -8,12 +8,16 @@ read.pack()
 write = tk.Entry(root, width=100,)
 write.pack()
 
-click = tk.Button(root, text="click", width=40) 
+ls = []
+def show():
+    text = write.get()
+    print(text)
+    ls.append(text)
+    print(ls)
+click = tk.Button(root, text= "click", width=40, command=show)
 click.pack()
 
 
-def show(click, write):
-    print(write.get())
-click = tk.Button
 
+    
 root.mainloop()
