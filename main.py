@@ -33,7 +33,7 @@ def show():
     f.write(text + "\n")
     f.close()
     show_list.insert("end", text)
-#delete button comman
+#delete button commant
 def delete_note():
     selected = show_list.curselection()
     index = selected[0]
