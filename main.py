@@ -12,6 +12,7 @@ write.pack()
 show_list = tk.Listbox(root, width=100, height=20)
 show_list.place(x = 380, y = 150)
 
+#pull the old mote
 old_file = open("note.txt", "r")
 content = old_file.read()
 lines = content.split("\n")
@@ -21,7 +22,7 @@ old_file.close()
 print(content)
 
 ls = []
-
+#show the note to user can watch and write
 def show():
     text = write.get()
     print(text)
@@ -32,10 +33,17 @@ def show():
     f.write(text + "\n")
     f.close()
     show_list.insert("end", text)
-
+#delete button comman
 def delete_note():
     selected = show_list.curselection()
-    print(selected)
+    index = selected[0]
+    show_list.delete(index)
+    ls.pop(index)
+    f = open("note.txt", "w")
+    for note in ls:
+        f.write(note + "\n")
+    f.close()
+#delete button that can click
 click = tk.Button(root, text= "click", width=10, command=show)
 click.place(x = 902, y = 100)
 
